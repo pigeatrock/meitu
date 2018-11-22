@@ -15,6 +15,10 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import axios from 'axios'
+  axios.defaults.baseURL = 'http://127.0.0.1:88/meitu/public/'
+Vue.prototype.axios = axios
+
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false

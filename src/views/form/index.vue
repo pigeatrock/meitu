@@ -96,42 +96,61 @@ export default {
     return {
       form: {
         //客户信息
-        name: '',
-        phone: '',
-        customer_type: '0', //客户类型，默认个人
-        service_type: '0',  //服务类型，默认保内
-        fault_info: '',     //故障描述
+        name: "",
+        phone: "",
+        customer_type: "0", //客户类型，默认个人
+        service_type: "0", //服务类型，默认保内
+        fault_info: "", //故障描述
         //货品信息
-        phone_version: '',
-        phone_color: '',
+        phone_version: "",
+        phone_color: "",
         imei1: null,
         imei2: null,
-        repair_result: '0',
+        repair_result: "0",
         //处理信息
-        check_result: '0',
-        actual_fault: '',
-        fault_code: '',
-        materiel: '',
-        new_imei1: '',
-        new_imei1: '',
+        check_result: "0",
+        actual_fault: "",
+        fault_code: "",
+        materiel: "",
+        new_imei1: "",
+        new_imei2: ""
       }
-    }
+    };
   },
   methods: {
     onSubmit() {
-      this.$message('submit!')
+      this.$message("保存!");
+
+      this.axios.get("/save", {
+        params: {
+          name: this.form.name,
+          phone: this.form.phone,
+          customer_type: this.form.customer_type,
+          service_type: this.form.service_type,
+          fault_info: this.form.fault_info,
+          phone_version: this.form.phone_version,
+          phone_color: this.form.phone_color,
+          imei1: this.form.imei1,
+          imei2: this.form.imei2,
+          repair_result: this.form.repair_result,
+          check_result: this.form.check_result,
+          actual_fault: this.form.actual_fault,
+          materiel: this.form.materiel,
+          new_imei1: this.form.new_imei1,
+          new_imei2: this.form.new_imei2
+        }
+      });
     },
     onCancel() {
       this.$message({
-        message: 'cancel!',
-        type: 'warning'
-      })
+        message: "取消!",
+        type: "warning"
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>
 
